@@ -1,0 +1,1079 @@
+:root {
+    --museum-brown: #5d4e37;
+    --museum-tan: #d4c5b0;
+    --museum-cream: #f5f1e8;
+    --museum-gold: #b8860b;
+    --museum-dark: #3d3226;
+    --text-primary: #2d2520;
+    --text-secondary: #6b5d52;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: var(--museum-cream);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 16px;
+    padding-top: 80px;
+}
+
+/* Top Navbar */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--museum-brown) 0%, var(--museum-dark) 100%);
+    color: var(--museum-cream);
+    padding: 0;
+    box-shadow: 0 2px 15px rgba(61, 50, 38, 0.3);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.top-navbar.scrolled {
+    box-shadow: 0 4px 20px rgba(61, 50, 38, 0.4);
+    background: linear-gradient(135deg, var(--museum-dark) 0%, var(--museum-brown) 100%);
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 80px;
+}
+
+.navbar-logo {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--museum-cream);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.navbar-logo:hover {
+    color: var(--museum-gold);
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    font-size: 28px;
+    transition: transform 0.5s ease;
+}
+
+.navbar-logo:hover .logo-icon {
+    transform: rotate(360deg);
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-link {
+    color: var(--museum-cream);
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--museum-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-link:hover::before {
+    width: 100%;
+}
+
+.navbar-link:hover {
+    color: var(--museum-gold);
+}
+
+.navbar-link.active {
+    color: var(--museum-gold);
+    background: rgba(184, 134, 11, 0.15);
+    border-radius: 5px;
+}
+
+.navbar-cta {
+    background: var(--museum-gold);
+    color: var(--museum-cream);
+    padding: 10px 24px;
+    border-radius: 25px;
+    border: 2px solid var(--museum-gold);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.navbar-cta:hover {
+    background: transparent;
+    color: var(--museum-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.4);
+}
+
+.navbar-cta:hover::before {
+    width: 0;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.menu-toggle:hover span {
+    background: var(--museum-gold);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header {
+    background: linear-gradient(135deg, var(--museum-brown) 0%, var(--museum-dark) 100%);
+    color: var(--museum-cream);
+    padding: 40px 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(61, 50, 38, 0.2);
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.content-section {
+    background: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(61, 50, 38, 0.1);
+    border: 1px solid var(--museum-tan);
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+    color: var(--text-primary);
+}
+
+/* Hypertext Link - Glossary */
+.glossary-link {
+    color: var(--museum-brown);
+    text-decoration: none;
+    border-bottom: 2px dotted var(--museum-brown);
+    cursor: help;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.glossary-link:hover {
+    background-color: var(--museum-tan);
+    border-bottom-style: solid;
+    color: var(--museum-dark);
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    background: var(--museum-brown);
+    color: var(--museum-cream);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 280px;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(61, 50, 38, 0.3);
+    line-height: 1.5;
+}
+
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--museum-brown);
+}
+
+.glossary-link:hover .tooltip {
+    display: block;
+}
+
+/* Hypermedia Links - Image & Video */
+.media-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    margin: 15px 10px 15px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+}
+
+.image-link {
+    background-color: #f9f3e8;
+    color: var(--museum-brown);
+    border: 2px solid var(--museum-brown);
+}
+
+.image-link:hover {
+    background-color: var(--museum-brown);
+    color: var(--museum-cream);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 78, 55, 0.3);
+}
+
+.video-link {
+    background-color: #fef5e7;
+    color: var(--museum-gold);
+    border: 2px solid var(--museum-gold);
+}
+
+.video-link:hover {
+    background-color: var(--museum-gold);
+    color: var(--museum-cream);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+}
+
+.icon {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+.duration {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-left: 6px;
+}
+
+/* Navigation Footer */
+.navigation {
+    background: var(--museum-brown);
+    color: var(--museum-cream);
+    padding: 0;
+    margin-top: 50px;
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+}
+
+.nav-item {
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    color: var(--museum-cream);
+    display: block;
+    border-right: 1px solid rgba(245, 241, 232, 0.2);
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-item:hover::before {
+    left: 100%;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--museum-gold);
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover::after {
+    width: 80%;
+}
+
+.nav-item:last-of-type {
+    border-right: none;
+}
+
+.nav-item:hover {
+    background: rgba(184, 134, 11, 0.1);
+    transform: translateY(-5px);
+}
+
+.nav-item:active {
+    transform: translateY(-2px);
+}
+
+.nav-label {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.7;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover .nav-label {
+    opacity: 1;
+    letter-spacing: 2px;
+    color: var(--museum-gold);
+}
+
+.nav-arrow {
+    margin-right: 12px;
+    font-size: 16px;
+    transition: transform 0.4s ease;
+    display: inline-block;
+}
+
+.nav-item:hover .nav-arrow {
+    transform: translateX(-5px);
+}
+
+.nav-item:nth-child(3):hover .nav-arrow {
+    transform: translateX(5px);
+}
+
+.nav-item:nth-child(2):hover .nav-arrow {
+    transform: scale(1.3) rotate(90deg);
+}
+
+.nav-title {
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 400;
+    color: var(--museum-cream);
+    font-family: Georgia, serif;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.3;
+}
+
+.nav-item:hover .nav-title {
+    color: var(--museum-gold);
+    transform: translateX(5px);
+}
+
+.related-section {
+    grid-column: 1 / -1;
+    padding: 35px 30px;
+    background: var(--museum-dark);
+}
+
+.related-header {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    opacity: 0.6;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+}
+
+.related-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.related-link {
+    color: var(--museum-gold);
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-weight: 400;
+    font-family: Georgia, serif;
+    position: relative;
+    display: inline-block;
+}
+
+.related-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--museum-gold);
+    transition: width 0.3s ease;
+}
+
+.related-link:hover::after {
+    width: 100%;
+}
+
+.related-link:hover {
+    color: var(--museum-tan);
+    transform: translateX(5px);
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+    background: var(--museum-dark);
+    padding: 20px 30px;
+    text-align: left;
+    border-top: 1px solid rgba(245, 241, 232, 0.1);
+}
+
+.footer-text {
+    font-size: clamp(11px, 2vw, 13px);
+    opacity: 0.5;
+    font-family: Arial, sans-serif;
+    color: var(--museum-tan);
+    word-wrap: break-word;
+}
+
+.highlight-box {
+    background: #fef9f0;
+    border-left: 4px solid var(--museum-gold);
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.highlight-box p {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 992px) {
+    .nav-container {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(245, 241, 232, 0.2);
+        padding: 30px 25px;
+    }
+
+    .nav-item:last-of-type {
+        border-bottom: 1px solid rgba(245, 241, 232, 0.2);
+    }
+
+    .related-section {
+        padding: 25px 25px;
+    }
+
+    .footer-bottom {
+        padding: 20px 25px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .navbar-container {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .navbar-logo {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        font-size: 22px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--museum-brown);
+        flex-direction: column;
+        padding: 20px;
+        gap: 0;
+        box-shadow: 0 4px 15px rgba(61, 50, 38, 0.3);
+    }
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-link {
+        padding: 15px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(245, 241, 232, 0.2);
+    }
+
+    .container {
+        padding: 20px 15px;
+    }
+
+    header {
+        padding: 30px 20px;
+    }
+
+    .content-section {
+        padding: 25px 20px;
+    }
+
+    .media-link {
+        font-size: 14px;
+        padding: 10px 16px;
+    }
+
+    .nav-item {
+        padding: 25px 20px;
+    }
+
+    .related-section {
+        padding: 25px 20px;
+    }
+
+    .footer-bottom {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo span:last-child {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .nav-title {
+        font-size: 16px;
+    }
+
+    .related-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .related-link {
+        font-size: 14px;
+    }
+}
+
+        /* Museum Digital Guide - Responsive Fix CSS */
+
+/* --- Base Layout (sesuai saran sebelumnya) --- */
+.navbar-logo {
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 600px) {
+    .navbar-logo {
+        font-size: 16px;
+        gap: 6px;
+        max-width: 55%;
+    }
+    .logo-icon {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .menu-toggle span {
+        width: 22px;
+    }
+}
+
+/* Footer Navigation Fix */
+@media (max-width: 768px) {
+    .nav-title {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-title {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+}
+
+
+.modal-open {
+    overflow: hidden; /* Mencegah scrolling pada body */
+    /* padding-right: 15px; /* Kompensasi scrollbar (opsional, tergantung browser) */
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Gunakan Flexbox untuk centering */
+    justify-content: center; /* Pusat horizontal */
+    align-items: center; /* Pusat vertikal */
+    
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 0; 
+    transition: opacity 0.3s ease-out; 
+    -webkit-backdrop-filter: blur(5px); 
+    backdrop-filter: blur(5px); 
+}
+
+/* Modal aktif (saat tampil) */
+.modal.active {
+    opacity: 1;
+    display: flex; /* PENTING: Aktifkan display flex di sini untuk centering */
+}
+
+.modal-content-wrapper { 
+    position: relative; 
+    /* Hapus top, left, dan margin: auto karena sudah dihandle oleh Flexbox pada .modal */
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    width: 90%; 
+    max-width: 900px; 
+    height: auto; 
+    max-height: 90vh; 
+    background: transparent; 
+    padding: 0; 
+    border-radius: 8px; 
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7); 
+    
+    transform: scale(0.9); 
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.4s ease-out; 
+    overflow: hidden; 
+}
+
+/* Saat modal aktif, animasikan kontennya */
+.modal.active .modal-content-wrapper {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+.modal-content-wrapper img {
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: calc(90vh - 60px); 
+    display: block;
+    border-radius: 0; 
+    object-fit: contain; 
+    background-color: var(--museum-dark); 
+    margin-bottom: 0; 
+}
+
+/* Tombol Tutup (Close Button) */
+.close-btn {
+    position: fixed; /* PENTING: Posisikan relatif terhadap viewport */
+    top: 30px; /* Jarak dari atas viewport */
+    right: 30px; /* Jarak dari kanan viewport */
+    
+    color: var(--museum-cream); 
+    background-color: var(--museum-brown); 
+    border-radius: 50%; 
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px; 
+    font-weight: 300; 
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--museum-cream); 
+    z-index: 2002; /* PENTING: Pastikan lebih tinggi dari modal (2000) */
+    
+    /* Tambahkan opacity: 0 dan transisi untuk membuatnya muncul bersama modal */
+    opacity: 0;
+    transition: opacity 0.3s ease-out, transform 0.3s ease;
+}
+
+/* Tampilkan tombol silang saat modal aktif */
+.modal.active .close-btn {
+    opacity: 1;
+    transform: none;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--museum-gold); 
+    background-color: var(--museum-dark); 
+    transform: rotate(90deg) scale(1.1); /* Pertahankan efek hover yang bagus */
+    border-color: var(--museum-gold);
+}
+
+/* Keterangan Gambar (Caption) */
+.caption {
+    width: 100%; 
+    text-align: center;
+    color: var(--museum-cream);
+    background-color: var(--museum-dark); 
+    padding: 10px 15px; 
+    font-size: 15px; 
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    word-wrap: break-word; 
+    box-sizing: border-box; 
+}
+
+/* Responsiveness (Media Queries) */
+@media only screen and (max-width: 700px) {
+    .modal-content-wrapper {
+        width: 95%;
+        border-radius: 5px; 
+    }
+    .close-btn {
+        top: -15px;
+        right: -15px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+    .caption {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .close-btn {
+        top: 5px; 
+        right: 5px;
+        background-color: rgba(0, 0, 0, 0.7); 
+        border: none;
+        color: white;
+    }
+    .close-btn:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+}
+
+.text-popup {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: #333;
+      padding: 20px 25px;
+      border-radius: 10px;
+      max-width: 400px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .text-popup.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1999;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .glossary-link {
+      color: #0077cc;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    /* agar hover tidak muncul tooltip lagi */
+    .tooltip {
+      display: none !important;
+    }
+
+body.no-scroll {
+    overflow: hidden; /* ini kunci scroll */
+}
+/* ==== Hypermedia Foto ==== */
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 450px;
+  max-width: 90%;
+  margin: 30px auto;
+  transition: transform 0.3s ease;
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+/* Efek hover blur + zoom ringan */
+.image-container:hover .preview-image {
+  filter: blur(3px) brightness(0.7);
+  transform: scale(1.05);
+}
+
+/* Overlay teks muncul di atas gambar saat hover */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  max-width: 90%;
+  line-height: 1.4em;
+}
+
+/* Saat hover teks muncul */
+.image-container:hover .overlay-text {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==== Popup Gambar ==== */
+#imageModal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+#imageModal.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-content {
+  position: relative;
+  width: 55%;       /* popup lebih besar */
+  max-height: 80vh;
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: zoomIn 0.4s ease;
+}
+
+#modalImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+#caption {
+  color: #fff;
+  padding: 12px;
+  font-size: 1rem;
+  text-align: center;
+  background: #333;
+  border-top: 1px solid #444;
+}
+
+/* Tombol Close */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1001;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+  color: #ffcc00;
+}
+
+/* Efek zoom popup */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Nonaktifkan scroll saat popup aktif */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 90%;
+    max-height: 80vh;
+  }
+  #caption {
+    font-size: 0.9rem;
+  }
+  .close-btn {
+    font-size: 26px;
+    right: 15px;
+  }
+}

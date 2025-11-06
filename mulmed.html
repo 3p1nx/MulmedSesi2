@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Age of Steam and Steel (1850-1920)</title>
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* === Tambahan style popup teks Bessemer === */
+        .text-popup {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            color: #333;
+            padding: 20px 25px;
+            border-radius: 10px;
+            max-width: 400px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: justify;
+            animation: fadeIn 0.2s ease-in;
+        }
+        .text-popup.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -45%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1999;
+        }
+        .overlay.active { display: block; }
+
+        /* supaya tooltip bawaan tidak muncul */
+        .tooltip { display: none !important; }
+
+        .glossary-link {
+            color: #0077cc;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* --- PERUBAHAN DI SINI --- */
+        /* Tambahkan ini agar seluruh area gambar memiliki kursor pointer */
+        .image-container {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-navbar" id="navbar">
+    <div class="navbar-container">
+        <a href="#" class="navbar-logo">
+            <span class="logo-icon">🏛️</span>
+            <span class="logo-text">Museum of Innovation</span>
+        </a>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+
+        <ul class="navbar-menu" id="navMenu">
+            <li><a href="#" class="navbar-link">Home</a></li>
+            <li><a href="#" class="navbar-link active">Exhibits</a></li>
+            <li><a href="#" class="navbar-link">Collections</a></li>
+            <li><a href="#" class="navbar-link">Visit</a></li>
+            <li><a href="#" class="navbar-link">About</a></li>
+            <li><a href="#" class="navbar-link navbar-cta">Book Tour</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>The Age of Steam and Steel</h1>
+        <div class="subtitle">1850 - 1920</div>
+    </header>
+
+    <div class="content-section">
+        <p>
+            A crucial period of technological growth occurred between the years 1850 and 1920. 
+            This era saw the perfection of the 
+            <span class="glossary-link" id="bessemerLink">Bessemer Process</span> 
+            which finally made large-scale steel production inexpensive and efficient.
+        </p>
+
+        <p>
+            Before this advancement, iron was the primary building material, but steel’s greater strength-to-weight ratio 
+            allowed for the construction of taller structures and more powerful machines. 
+            The Bessemer process involved blowing air through molten pig iron to remove impurities and it revolutionized manufacturing.
+        </p>
+
+        <p style="text-align: left;margin-bottom: 20px; color: var(--text-primary);">
+            This industrial momentum also led to innovations in transportation. 
+            <div class="image-container" id="blastFurnaceContainer" data-image="mulmed3.jpg">
+                <img src="mulmed3.jpg" alt="Early Train Models" class="preview-image">
+                <div class="overlay-text" id="overlayText">
+                    Click here to see the early train models that reduced travel time across the continent.
+                </div>
+             </div>
+        </p>
+
+        <p>
+            The use of coal as a primary fuel source propelled these factories and vehicles, 
+            though it also created a heavy environmental toll. 
+            It is important to remember that all this progress was built on the backs of a growing industrial 
+            <span class="glossary-link" id="laborLink">labor force</span> 
+            and their families. 
+            <a href="https://drive.google.com/file/d/1q9HLpOQ8bS69QX0kYydtNb4S3-geap_m/view?usp=sharing" 
+                class="related-link" 
+                target="_blank" 
+                rel="noopener noreferrer">
+                Go to the section on factory conditions.
+            </a>
+        </p>
+
+        <p style="text-align: left;margin-bottom: 20px; color: var(--text-primary);">
+            The final technological leap of the period was the widespread adoption of electricity, moving industry beyond steam power. 
+           <div class="image-container" id="lightContainer" data-image="mulmed4.jpg">
+                <img src="mulmed4.jpg" alt="First Electric City Lights" class="preview-image">
+                <div class="overlay-text" id="lightOverlay">
+                    See images of the first electric lights in the city.
+                </div>
+            </div>
+        </p>
+    
+        <p>
+            This immense output transformed global economies, creating the modern industrial world. 
+            However, the rapidity of change often masked deep social inequalities. 
+            The relentless pursuit of efficiency prioritized machinery over human welfare, 
+            leading to long working hours and dangerous factory environments. 
+            The shift from rural life to crowded urban centers also placed enormous strain on public services.
+        </p>
+
+        <div class="highlight-box">
+            <p>
+                The shift from steam to electricity represented a profound change in how power was generated and distributed. 
+                While the internal combustion engine was still developing, 
+                the convenience and efficiency of electric lighting, motors, and streetcars fundamentally reshaped city life 
+                and set the stage for the next century of innovation.
+            </p>
+             <a href="#" class="media-link video-link" id="videoLink" data-video="mulmedvideo.mp4">
+                <span class="icon">▶</span> Watch: Steel Production Process <span class="duration">(0:47)</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer class="navigation">
+    <div class="nav-container">
+        <a href="#" class="nav-item">
+            <div class="nav-label"><span class="nav-arrow">←</span>Exhibit 1</div>
+            <div class="nav-title">Transportation Revolution</div>
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-label"><span class="nav-arrow">■</span>Exhibit 2</div>
+            <div class="nav-title">The Age of Steam and Steel</div>
+        </a>
+        <a href="#" class="nav-item">
+            <div class="nav-label"><span class="nav-arrow">→</span>Exhibit 3</div>
+            <div class="nav-title">Electricity & Urban Life</div>
+        </a>
+
+        <div class="related-section">
+            <div class="related-header"><span class="nav-arrow">⊞</span>Related Topics</div>
+            <div class="related-links">
+                <a href="#" class="related-link">Labor Movements</a>
+                <a href="#" class="related-link">Factory Towns</a>
+                <a href="#" class="related-link">Industrial Innovation</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p class="footer-text">Museum of Innovation © 2025 | Digital Exhibit Guide</p>
+    </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="text-popup" id="bessemerPopup">
+    <p>
+        The <strong>Bessemer Process</strong> was a revolutionary method for mass-producing steel by 
+        blowing air through molten pig iron to remove impurities like carbon and silicon. 
+        This innovation drastically reduced steel production costs and accelerated industrial growth 
+        during the late 19th century.
+    </p>
+</div>
+
+<div class="text-popup" id="laborPopup">
+    <p>
+        The <strong>industrial labor force</strong> refers to the large group of workers who powered 
+        the factories, railroads, and construction sites of the Industrial Revolution. 
+        Often working long hours in unsafe conditions, these laborers were essential to 
+        industrial progress but rarely shared equally in its rewards.
+    </p>
+</div>
+
+
+<div id="imageModal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modalImage" src="" alt="Zoomed Image">
+    <div id="caption"></div>
+  </div>
+</div>
+
+
+<div id="videoModal" class="modal">
+    <span class="close-btn">&times;</span>
+    <div class="modal-content-wrapper">
+        <video id="modalVideo" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div id="videoCaption" class="caption"></div>
+    </div>
+</div>
+
+<script>
+    // === Toggle Menu (navbar mobile) ===
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('active');
+    }
+
+    // === Navbar Scroll Effect ===
+    window.onscroll = function() {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) navbar.classList.add("scrolled");
+        else navbar.classList.remove("scrolled");
+    };
+
+    // === Popup teks Bessemer ===
+    const bessemerLink = document.getElementById("bessemerLink");
+    const bessemerPopup = document.getElementById("bessemerPopup");
+    const overlay = document.getElementById("overlay");
+
+    if (bessemerLink && bessemerPopup && overlay) {
+        bessemerLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            bessemerPopup.classList.add("active");
+            overlay.classList.add("active");
+            document.body.classList.add("no-scroll"); // Kunci scroll
+        });
+
+        overlay.addEventListener("click", function() {
+            bessemerPopup.classList.remove("active");
+            overlay.classList.remove("active");
+            document.body.classList.remove("no-scroll"); // Aktifkan scroll kembali
+        });
+    }
+    // === Popup teks Labor Force ===
+    const laborLink = document.getElementById("laborLink");
+    const laborPopup = document.getElementById("laborPopup");
+
+    if (laborLink && laborPopup && overlay) {
+        laborLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            laborPopup.classList.add("active");
+            overlay.classList.add("active");
+            document.body.classList.add("no-scroll");
+        });
+
+        overlay.addEventListener("click", function() {
+            laborPopup.classList.remove("active");
+            overlay.classList.remove("active");
+            document.body.classList.remove("no-scroll");
+        });
+    }
+
+
+    // === Modal Gambar (untuk hypermedia image) ===
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const captionText = document.getElementById("caption");
+    const closeBtns = document.getElementsByClassName("close-btn");
+    const body = document.body;
+    
+    // === Modal Gambar untuk "First City Light" ===
+    const imgContainer2 = document.querySelector('.image-container[data-image="mulmed4.jpg"]');
+    // const overlayText2 = imgContainer2 ? imgContainer2.querySelector('.overlay-text') : null; /* --- PERUBAHAN DI SINI (baris ini tidak lagi diperlukan) --- */
+
+    if (imgContainer2) { /* --- PERUBAHAN DI SINI (dihapus 'overlayText2 &&') --- */
+        imgContainer2.addEventListener("click", function(e) { /* --- PERUBAHAN DI SINI (diubah dari 'overlayText2') --- */
+            e.stopPropagation();
+            const imagePath = imgContainer2.getAttribute("data-image");
+            body.classList.add("no-scroll");
+            modal.style.display = "flex";
+            setTimeout(() => {
+                modal.classList.add("active");
+                modalImg.src = imagePath;
+                captionText.innerHTML = "First electric city lights";
+            }, 10);
+        });
+    }
+
+    // Hypermedia image container (gambar tampil di awal)
+    const imgContainer = document.getElementById("blastFurnaceContainer");
+    // const overlayText = document.getElementById("overlayText"); /* --- PERUBAHAN DI SINI (baris ini tidak lagi diperlukan) --- */
+
+    if (imgContainer) { /* --- PERUBAHAN DI SINI (dihapus 'overlayText &&') --- */
+        imgContainer.addEventListener("click", function(e) { /* --- PERUBAHAN DI SINI (diubah dari 'overlayText') --- */
+            e.stopPropagation();
+            const imagePath = imgContainer.getAttribute("data-image");
+            body.classList.add("no-scroll");
+            modal.style.display = "flex";
+            setTimeout(() => {
+                modal.classList.add("active");
+                modalImg.src = imagePath;
+                captionText.innerHTML = "Early train model";
+            }, 10);
+        });
+    }
+
+    // === Modal Video ===
+    const videoModal = document.getElementById("videoModal");
+    const videoLink = document.getElementById("videoLink");
+    const modalVideo = document.getElementById("modalVideo");
+    const videoCaption = document.getElementById("videoCaption");
+
+    if (videoLink) {
+        videoLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const videoPath = this.getAttribute("data-video");
+            body.classList.add("no-scroll");
+            videoModal.style.display = "flex";
+            setTimeout(() => {
+                videoModal.classList.add("active");
+                modalVideo.src = videoPath;
+                videoCaption.innerHTML = "Steel production process";
+            }, 10);
+        });
+    }
+
+    // === Tutup Modal (Gambar & Video) ===
+    for (let btn of closeBtns) {
+        btn.onclick = function() {
+            modal.style.display = "none";
+            videoModal.style.display = "none";
+            modal.classList.remove("active");
+            videoModal.classList.remove("active");
+            modalImg.src = "";
+            modalVideo.pause();
+            modalVideo.src = "";
+            body.classList.remove("no-scroll");
+        };
+    }
+
+    // === Tutup modal jika klik area luar ===
+    window.onclick = function(event) {
+        if (event.target === modal || event.target === videoModal) {
+            modal.style.display = "none";
+            videoModal.style.display = "none";
+            modal.classList.remove("active");
+            videoModal.classList.remove("active");
+            modalImg.src = "";
+            modalVideo.pause();
+            modalVideo.src = "";
+            body.classList.remove("no-scroll");
+        }
+    };
+</script>
+
+</body>
+</html>
